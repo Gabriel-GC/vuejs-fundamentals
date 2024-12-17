@@ -35,9 +35,14 @@ export default {
     methods: {
         updateTodo(e) {
             const newTitle = e.target.value
+            
+            if (!newTitle) {
+                return;
+            }
 
             const payload = {
                 id: this.todo.id,
+
 
                 data:{
                     title: newTitle,
