@@ -1,13 +1,8 @@
 {
   "todos": [
     {
+      "id": "b740",
       "title": "teste",
-      "completed": false,
-      "id": "1422"
-    },
-    {
-      "id": "2bb5",
-      "title": "asd",
       "completed": false
     }
   ]
