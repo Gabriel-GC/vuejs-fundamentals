@@ -11,7 +11,7 @@
                         type="text"
                         placeholder="Digite a sua tarefa"
                         :value="todo.title"
-                        readonly
+                        @keyup.enter="updateTodo"
                     >
                 </div>
                 <div>
@@ -30,6 +30,22 @@ export default {
             type: Object,
             default: () => ([]),
         }
+    },
+
+    methods: {
+        updateTodo(e) {
+            const newTitle = e.target.value
+
+            const payload = {
+                id: this.todo.id,
+
+                data:{
+                    title: newTitle,
+                    completed: this.todo.completed
+                }
+            }
+            this.$store.dispatch('updateTodo', payload)
+        },
     }
 }
 
