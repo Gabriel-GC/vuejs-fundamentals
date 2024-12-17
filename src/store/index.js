@@ -8,6 +8,9 @@ export default createStore({
         mutations: {
             storeTodos(state, payload) {
                 state.todos = payload
+            },
+            storeTodo(state, payload) {
+                state.todos.push(payload)
             }
         },
        
@@ -26,8 +29,10 @@ export default createStore({
                 })
             },
 
-            addTodo(context, data){
-                axios.post('http://localhost:3000/todos', data)
+            addTodo({commit}, data){
+                axios.post('http://localhost:3000/todos', data).then((response) => {
+                    commit('storeTodo', response.data);
+                })
             }
         },
 
