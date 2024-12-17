@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createStore } from "vuex";
 
 export default createStore({
@@ -9,43 +10,32 @@ export default createStore({
                 state.todos = payload
             }
         },
+       
+        actions: {
+            getTodos({commit}){
+                return new Promise ((resolve)=> {
+                    setTimeout(()=>{
+                        return axios.get ('http://localhost:3000/todos')
+                            .then((response) => {
+                            commit('storeTodos', response.data)
+                            resolve()
+                        })
+                        
+                    },1000)
+                    
+                })
+            },
+
+            addTodo(context, data){
+                axios.post('http://localhost:3000/todos', data)
+            }
+        },
+
         getters: {
             
         },
-        actions: {
-            
-        },
+
         modules: {
             
         }
 })
-
-// import { createApp } from 'vue'
-// import { createStore } from 'vuex'
-
-// // Create a new store instance.
-// const store = createStore({
-//     options : {
-//         state: {
-//             todos: []
-//         },
-//         getters: {
-//             storeTodos(state, payload) {
-//                 state.todos = payload
-//             }
-//         },
-//         mutations: {
-            
-//         },
-//         actions: {
-            
-//         },
-//         modules: {
-            
-//         }
-// }})
-
-// const app = createApp({ /* your root component */ })
-
-// // Install the store instance as a plugin
-// app.use(store)

@@ -1,6 +1,7 @@
 <template>
-    <form class="form__container">
+    <form @submit.stop.prevent="addTodo" class="form__container">
                 <input
+                    v-model= "title"
                     placeholder="Adicione um novo item ..."
                     type="text" 
                     class="content__input"
@@ -13,3 +14,22 @@
                 </button>
             </form>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            title: ''
+        }
+    },
+    methods: {
+        addTodo() {
+            this.$store.dispatch('addTodo', {
+                title: this.title,
+                completed: false
+            })
+        }
+    }
+}
+
+</script>

@@ -1,8 +1,5 @@
 <template>
       <div>
-      <pre>
-        {{ $store.state.todos }}
-      </pre>
         <div>
             <TodoSpinner v-if="loading" />
             <template v-else>
@@ -19,7 +16,6 @@ import TodoItems from './components/TodoItems.vue';
 import TodoSpinner from './components/TodoSpinner.vue';
 import TodoFormAdd from './components/TodoFormAdd.vue';
 import TodoEmpty from './components/TodoEmpty.vue';
-import axios from 'axios';
 
 export default {
     name: 'App',
@@ -32,9 +28,9 @@ export default {
     },
 
     created() {
-        axios.get ('http://localhost:3000/todos')
-        .then((response) => {
-            this.$store.commit('storeTodos', response.data)
+        this.loading = true
+        this.$store.dispatch('getTodos').finally(()=> {
+            this.loading = false
         })
     },
 }
