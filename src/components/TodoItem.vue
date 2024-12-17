@@ -23,7 +23,10 @@
                     >
                 </div>
                 <div>
-                    <button>
+                    <button
+                    class="btn__trash"
+                    @click="onDelete"
+                    >
                         <!-- icon trash-->
                     </button>
                 </div>
@@ -70,6 +73,10 @@ export default {
         onCheckClick() {
             this.isCompleted = !this.isCompleted
             this.updateTodo()
+        },
+
+        onDelete() {
+            this.$store.dispatch('deleteTodo', this.todo.id)
         }
     }
 }

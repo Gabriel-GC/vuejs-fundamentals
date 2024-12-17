@@ -1,51 +1,6 @@
 {
   "todos": [
     {
-      "title": "Easdasdadrtes",
-      "completed": true,
-      "id": "1"
-    },
-    {
-      "title": "Estudar Vue",
-      "completed": true,
-      "id": "2"
-    },
-    {
-      "title": "Estudar composition API",
-      "completed": true,
-      "id": "3"
-    },
-    {
-      "title": "teste db",
-      "completed": true,
-      "id": "1b78"
-    },
-    {
-      "id": "f2ec",
-      "title": "teste 2",
-      "completed": false
-    },
-    {
-      "id": "ce66",
-      "title": "teste 3",
-      "completed": false
-    },
-    {
-      "id": "2da1",
-      "title": "testee",
-      "completed": false
-    },
-    {
-      "id": "8d0c",
-      "title": "testeee",
-      "completed": false
-    },
-    {
-      "id": "5a20",
-      "title": "test",
-      "completed": false
-    },
-    {
       "title": "teste",
       "completed": false,
       "id": "1422"
