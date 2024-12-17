@@ -30,6 +30,8 @@ export default {
             this.$store.dispatch('addTodo', {
                 title: this.title,
                 completed: false
+            }).finally(() => {
+                this.title = ''
             })
         }
     }
