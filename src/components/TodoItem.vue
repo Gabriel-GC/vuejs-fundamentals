@@ -2,16 +2,24 @@
     <div>
         <div>
             <div>
-                <button>
+                <button
+                :class="{
+                    'checked': isCompleted,
+                    'unchecked': !isCompleted,
+                }"
+                @click="onCheckClick"
+                style="background-color: blue;"
+
+                >
                     <!-- svg check-->
                 </button>
             </div>
                 <div>
                     <input
+                        v-model="title"
                         type="text"
                         placeholder="Digite a sua tarefa"
-                        :value="todo.title"
-                        @keyup.enter="updateTodo"
+                        @keyup.enter="onTitleChange"
                     >
                 </div>
                 <div>
@@ -28,29 +36,41 @@ export default {
     props: {
         todo: {
             type: Object,
-            default: () => ([]),
+            default: () => ({}),
+        }
+    },
+
+    data() {
+        return {
+            title: this.todo.title,
+            isCompleted: this.todo.completed,
         }
     },
 
     methods: {
-        updateTodo(e) {
-            const newTitle = e.target.value
-            
-            if (!newTitle) {
-                return;
-            }
-
+        updateTodo() {
             const payload = {
                 id: this.todo.id,
-
-
                 data:{
-                    title: newTitle,
-                    completed: this.todo.completed
+                    title: this.title,
+                    completed: this.isCompleted
                 }
             }
             this.$store.dispatch('updateTodo', payload)
         },
+
+        onTitleChange() {
+            if (!this.title) {
+                return;
+            }
+
+            this.updateTodo()
+        },
+
+        onCheckClick() {
+            this.isCompleted = !this.isCompleted
+            this.updateTodo()
+        }
     }
 }
 
