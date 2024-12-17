@@ -10,7 +10,7 @@
                     <input
                         type="text"
                         placeholder="Digite a sua tarefa"
-                        value="Estudar Vue 3"
+                        :value="todo.title"
                         readonly
                     >
                 </div>
@@ -22,3 +22,15 @@
             </div>
         </div>
 </template>
+
+<script>
+export default {
+    props: {
+        todo: {
+            type: Object,
+            default: () => ([]),
+        }
+    }
+}
+
+</script>
