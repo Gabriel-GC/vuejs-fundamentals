@@ -1,6 +1,5 @@
 <template>
-      <div>
-        <div>
+        <div class="container">
             <TodoSpinner v-if="loading" />
             <template v-else>
                 <TodoFormAdd/>
@@ -12,7 +11,6 @@
                 />
             </template>
         </div>
-    </div>
 </template>
 
 <script>

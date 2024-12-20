@@ -1,5 +1,5 @@
 <template>
     <div class="msg">
-                Você ainda não tem nenhuma tarefa.
-            </div>
+        <p>Você ainda não tem nenhuma tarefa. 😔</p>
+    </div>
 </template>

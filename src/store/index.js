@@ -38,7 +38,7 @@ export default createStore({
                             resolve()
                         })
                         
-                    },1000)
+                    },3000)
                     
                 })
             },
