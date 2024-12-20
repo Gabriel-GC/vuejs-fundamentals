@@ -181,7 +181,10 @@ body {
   color: var(--primary-white);
   font-size: 12px;
   padding: 16px 0;
+}
 
+.vue-devtools__panel[data-v-e9063f7b]{
+  display: none !important;
 }
 
 @media screen and (max-width: 480px) {
